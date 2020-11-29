@@ -19,7 +19,7 @@ dns:
     - https://dns.google/dns-query
     - https://cloudflare-dns.com/dns-query
 proxies:
-  - name: Trojan JP
+  - name: xproTrojan JP
     type: trojan
     server: t.firebirdx.com
     port: 443
@@ -31,7 +31,7 @@ proxy-groups:
   - name: 🔰 節點選擇
     type: select
     proxies:
-      - Trojan JP
+      - xproTrojan JP
 rules:
   - GEOIP,CN,DIRECT
   - MATCH,🔰 節點選擇
