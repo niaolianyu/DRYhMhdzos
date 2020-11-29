@@ -53,7 +53,6 @@ proxy-groups:
     proxies:
       - Trojan JP
 rules:
-  - GEOIP,CN,国内走向
-  # 最终规则
-  - MATCH,国外走向
+  - GEOIP,CN,DIRECT
+  - MATCH,🔰 節點選擇
 
