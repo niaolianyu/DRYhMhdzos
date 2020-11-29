@@ -56,31 +56,34 @@ proxy-providers:
      health-check:
        enable: true
        interval: 600
-       url: http://www.gstatic.com/generate_204    
+       url: http://www.gstatic.com/generate_204
+  xpro:
+     type: http
+     url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yml"
+     interval: 3600
+     path: ./Proxy/xpro.yaml
+     health-check:
+       enable: true
+       interval: 600
+       url: http://www.gstatic.com/generate_204 
 proxy-groups:
   - name: 国外走向
     type: select
     proxies:
       - 🔰 節點選擇
+      - 自有
       - DIRECT
   - name: 国内走向
     type: select
     proxies:
       - DIRECT
+      - 自有
       - 🔰 節點選擇
   - name: 🔰 節點選擇
     type: select
     proxies:
       - AutoUrl-test
       - Load-balance
-      - Trojan JP
-    use:
-      - jetstream
-  - name: Load-balance
-    type: load-balance
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    proxies:
       - Trojan JP
     use:
       - jetstream
@@ -91,7 +94,25 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
+      - 自有
       - jetstream
+  - name: Load-balance
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    proxies:
+      - Trojan JP
+    use:
+      - 自有
+      - jetstream
+  - name: 自有
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    proxies:
+      - Trojan JP
+    use:
+      - xpro
 rule-providers:
   Global:
     type: http
