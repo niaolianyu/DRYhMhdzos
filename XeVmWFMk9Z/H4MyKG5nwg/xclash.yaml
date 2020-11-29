@@ -57,7 +57,7 @@ proxy-providers:
        enable: true
        interval: 800
        url: http://www.gstatic.com/generate_204
-  自有:
+  xpro:
      type: http
      url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
      interval: 3600
