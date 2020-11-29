@@ -115,6 +115,12 @@ proxy-groups:
     use:
       - xpro
 rule-providers:
+  xprodomain:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Extra/xprodomain.yaml
+    url: https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xprodomain.yaml
+    interval: 86400
   Global:
     type: http
     behavior: classical
@@ -139,6 +145,7 @@ rules:
   #- IP-CIDR,182.254.116.0/24,国内走向
   #- RULE-SET,Unbreak,国内走向
   - RULE-SET,China,国内走向
+  - RULE-SET,xprodomain,自有
   - RULE-SET,Global,国外走向
   - GEOIP,CN,国内走向
   
