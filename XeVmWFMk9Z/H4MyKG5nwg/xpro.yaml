@@ -21,9 +21,9 @@ dns:
 proxies:
   - name: xproTrojan JP
     type: trojan
-    server: t.firebirdx.com
+    server: t.firebirdxy.com
     port: 443
-    password: 62be4743
+    password: 62be4743y
     alpn:
       - h2
       - http/1.1
