@@ -1,14 +1,14 @@
 payload:
   # > xpro
-  - DOMAIN-SUFFIX,githubusercontent.com
-  - DOMAIN-SUFFIX,github.com
-  - DOMAIN-SUFFIX,fb.me
-  - DOMAIN-SUFFIX,fbcdn.net
+  #- DOMAIN-SUFFIX,githubusercontent.com
+  #- DOMAIN-SUFFIX,github.com
+  #- DOMAIN-SUFFIX,fb.me
+  #- DOMAIN-SUFFIX,fbcdn.net
 
-  - DOMAIN-KEYWORD,amazon
-  - DOMAIN-KEYWORD,google
-  - DOMAIN-KEYWORD,gmail
-  - DOMAIN-KEYWORD,youtube
-  - DOMAIN-KEYWORD,facebook
+  #- DOMAIN-KEYWORD,amazon
+  #- DOMAIN-KEYWORD,google
+  #- DOMAIN-KEYWORD,gmail
+  #- DOMAIN-KEYWORD,youtube
+  #- DOMAIN-KEYWORD,facebook
   
-  - DOMAIN,mail.google.com
+  #- DOMAIN,mail.google.com
