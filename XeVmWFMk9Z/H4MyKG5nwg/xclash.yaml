@@ -107,7 +107,7 @@ proxy-groups:
       - xpro
       - jetstream
   - name: 自有
-    type: load-balance
+    type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
