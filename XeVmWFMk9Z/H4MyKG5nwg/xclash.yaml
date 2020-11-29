@@ -55,7 +55,7 @@ proxy-providers:
      path: ./Proxy/jetstreamfeed.yaml
      health-check:
        enable: true
-       interval: 600
+       interval: 800
        url: http://www.gstatic.com/generate_204
   xpro:
      type: http
@@ -64,7 +64,7 @@ proxy-providers:
      path: ./Proxy/xpro.yaml
      health-check:
        enable: true
-       interval: 600
+       interval: 800
        url: http://www.gstatic.com/generate_204 
 proxy-groups:
   - name: 国外走向
