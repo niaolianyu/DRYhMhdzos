@@ -63,7 +63,7 @@ proxy-providers:
      interval: 3600
      path: ./Proxy/xpro.yaml
      health-check:
-       enable: true
+       enable: false
        interval: 800
        url: http://www.gstatic.com/generate_204 
 proxy-groups:
