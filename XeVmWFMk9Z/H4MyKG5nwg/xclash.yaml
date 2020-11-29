@@ -57,7 +57,7 @@ proxy-providers:
        enable: true
        interval: 800
        url: http://www.gstatic.com/generate_204
-  xpro:
+  自有:
      type: http
      url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
      interval: 3600
@@ -86,6 +86,7 @@ proxy-groups:
       - Load-balance
       - Trojan JP
     use:
+      - xpro
       - jetstream
   - name: AutoUrl-test
     type: url-test
@@ -94,7 +95,7 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      - 自有
+      - xpro
       - jetstream
   - name: Load-balance
     type: load-balance
@@ -103,10 +104,10 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      - 自有
+      - xpro
       - jetstream
   - name: 自有
-    type: select
+    type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
@@ -142,13 +143,15 @@ rules:
   - GEOIP,CN,国内走向
   
   # 抗 DNS 污染 
-  - DOMAIN-KEYWORD,amazon,🔰 節點選擇
-  - DOMAIN-KEYWORD,google,🔰 節點選擇
-  - DOMAIN-KEYWORD,gmail,🔰 節點選擇
+  - DOMAIN-KEYWORD,amazon,自有
+  - DOMAIN-KEYWORD,google,自有
+  - DOMAIN-KEYWORD,gmail,自有
+  - DOMAIN-SUFFIX,githubusercontent.com,自有
+  - DOMAIN-SUFFIX,github.com,自有
   - DOMAIN-KEYWORD,youtube,🔰 節點選擇
-  - DOMAIN-KEYWORD,facebook,🔰 節點選擇
-  - DOMAIN-SUFFIX,fb.me,🔰 節點選擇
-  - DOMAIN-SUFFIX,fbcdn.net,🔰 節點選擇
+  - DOMAIN-KEYWORD,facebook,自有
+  - DOMAIN-SUFFIX,fb.me,自有
+  - DOMAIN-SUFFIX,fbcdn.net,自有
   - DOMAIN-KEYWORD,twitter,🔰 節點選擇
   - DOMAIN-KEYWORD,instagram,🔰 節點選擇
   - DOMAIN-KEYWORD,dropbox,🔰 節點選擇
