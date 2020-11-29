@@ -155,17 +155,17 @@ rules:
   - DOMAIN-KEYWORD,gmail,自有
   - DOMAIN-SUFFIX,githubusercontent.com,自有
   - DOMAIN-SUFFIX,github.com,自有
-  - DOMAIN-KEYWORD,youtube,🔰 節點選擇
+  - DOMAIN-KEYWORD,youtube,国外走向
   - DOMAIN-KEYWORD,facebook,自有
   - DOMAIN-SUFFIX,fb.me,自有
   - DOMAIN-SUFFIX,fbcdn.net,自有
-  - DOMAIN-KEYWORD,twitter,🔰 節點選擇
-  - DOMAIN-KEYWORD,instagram,🔰 節點選擇
-  - DOMAIN-KEYWORD,dropbox,🔰 節點選擇
-  - DOMAIN-SUFFIX,twimg.com,🔰 節點選擇
-  - DOMAIN-KEYWORD,blogspot,🔰 節點選擇
-  - DOMAIN-SUFFIX,youtu.be,🔰 節點選擇
-  - DOMAIN-KEYWORD,whatsapp,🔰 節點選擇
+  - DOMAIN-KEYWORD,twitter,国外走向
+  - DOMAIN-KEYWORD,instagram,国外走向
+  - DOMAIN-KEYWORD,dropbox,国外走向
+  - DOMAIN-SUFFIX,twimg.com,国外走向
+  - DOMAIN-KEYWORD,blogspot,国外走向
+  - DOMAIN-SUFFIX,youtu.be,国外走向
+  - DOMAIN-KEYWORD,whatsapp,国外走向
 
   # 常见广告域名屏蔽
   #- DOMAIN-KEYWORD,admarvel,REJECT
