@@ -57,15 +57,15 @@ proxy-providers:
        enable: true
        interval: 800
        url: http://www.gstatic.com/generate_204
-  xpro:
-     type: http
-     url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
-     interval: 3600
-     path: ./Proxy/xpro.yaml
-     health-check:
-       enable: false
-       interval: 800
-       url: http://www.gstatic.com/generate_204 
+ # xpro:
+ #    type: http
+ #    url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
+  #   interval: 3600
+  #   path: ./Proxy/xpro.yaml
+  #   health-check:
+  #     enable: false
+  #     interval: 800
+  #     url: http://www.gstatic.com/generate_204 
 proxy-groups:
   - name: 国外走向
     type: select
@@ -86,7 +86,7 @@ proxy-groups:
       - Load-balance
       - Trojan JP
     use:
-      - xpro
+     # - xpro
       - jetstream
   - name: AutoUrl-test
     type: url-test
@@ -95,7 +95,7 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      - xpro
+      #- xpro
       - jetstream
   - name: Load-balance
     type: load-balance
@@ -104,7 +104,7 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      - xpro
+     # - xpro
       - jetstream
   - name: 自有
     type: fallback
@@ -112,15 +112,15 @@ proxy-groups:
     interval: 600
     proxies:
       - Trojan JP
-    use:
-      - xpro
+    #use:
+     # - xpro
 rule-providers:
-  xprodomain:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Extra/xprodomain.yaml
-    url: https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xprodomain.yaml
-    interval: 86400
+ # xprodomain:
+  #  type: http
+ #   behavior: classical
+  #  path: ./RuleSet/Extra/xprodomain.yaml
+  #  url: https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xprodomain.yaml
+  #  interval: 86400
   Global:
     type: http
     behavior: classical
@@ -145,8 +145,11 @@ rules:
   #- IP-CIDR,182.254.116.0/24,国内走向
   #- RULE-SET,Unbreak,国内走向
   - RULE-SET,China,国内走向
-  - RULE-SET,xprodomain,自有
+  #- RULE-SET,xprodomain,自有
   - DOMAIN-KEYWORD,gmail,自有
+  - DOMAIN-KEYWORD,mail,自有
+  - DOMAIN-KEYWORD,login,自有
+  - DOMAIN-KEYWORD,sign,自有
   - DOMAIN-SUFFIX,github.com,自有
   - RULE-SET,Global,国外走向
   #- GEOIP,CN,国内走向
