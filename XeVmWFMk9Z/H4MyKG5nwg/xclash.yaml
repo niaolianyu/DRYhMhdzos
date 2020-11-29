@@ -57,15 +57,15 @@ proxy-providers:
        enable: true
        interval: 800
        url: http://www.gstatic.com/generate_204
-  #xpro:
-  #   type: http
-  #   url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
-  #   interval: 3600
-  #   path: ./Proxy/xpro.yaml
-  #   health-check:
-  #     enable: true
-  #     interval: 800
-  #     url: http://www.gstatic.com/generate_204 
+  xpro:
+     type: http
+     url: "https://raw.githubusercontent.com/niaolianyu/DRYhMhdzos/main/XeVmWFMk9Z/H4MyKG5nwg/xpro.yaml"
+     interval: 3600
+     path: ./Proxy/xpro.yaml
+     health-check:
+       enable: false
+       interval: 800
+       url: http://www.gstatic.com/generate_204 
 proxy-groups:
   - name: 国外走向
     type: select
@@ -86,7 +86,7 @@ proxy-groups:
       - Load-balance
       - Trojan JP
     use:
-      #- xpro
+      - xpro
       - jetstream
   - name: AutoUrl-test
     type: url-test
@@ -95,7 +95,7 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      #- xpro
+      - xpro
       - jetstream
   - name: Load-balance
     type: load-balance
@@ -104,16 +104,16 @@ proxy-groups:
     proxies:
       - Trojan JP
     use:
-      #- xpro
+      - xpro
       - jetstream
   - name: 自有
-    type: load-balance
+    type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
       - Trojan JP
     use:
-     # - xpro
+      - xpro
 rule-providers:
   xprodomain:
     type: http
@@ -146,30 +146,72 @@ rules:
   #- RULE-SET,Unbreak,国内走向
   - RULE-SET,China,国内走向
   - RULE-SET,xprodomain,自有
-  
+  - DOMAIN-KEYWORD,gmail,自有
+  - DOMAIN-SUFFIX,github.com,自有
+  - RULE-SET,Global,国外走向
+  #- GEOIP,CN,国内走向
   
   # 抗 DNS 污染 
-  - DOMAIN-KEYWORD,amazon,自有
+  #- DOMAIN-KEYWORD,amazon,自有
   #- DOMAIN-KEYWORD,google,自有
-  #- DOMAIN-KEYWORD,gmail,自有
-  - DOMAIN,mail.google.com,自有
-  - DOMAIN-SUFFIX,google.com,自有
-  - DOMAIN-SUFFIX,githubusercontent.com,自有
-  - DOMAIN-SUFFIX,github.com,自有
-  - DOMAIN-KEYWORD,facebook,自有
-  - DOMAIN-SUFFIX,fb.me,国外走向
-  - DOMAIN-SUFFIX,fbcdn.net,国外走向
-  - DOMAIN-KEYWORD,youtube,国外走向
-  - DOMAIN-KEYWORD,twitter,国外走向
-  - DOMAIN-KEYWORD,instagram,国外走向
-  - DOMAIN-KEYWORD,dropbox,国外走向
-  - DOMAIN-SUFFIX,twimg.com,国外走向
-  - DOMAIN-KEYWORD,blogspot,国外走向
-  - DOMAIN-SUFFIX,youtu.be,国外走向
-  - DOMAIN-KEYWORD,whatsapp,国外走向
+  #- DOMAIN-SUFFIX,githubusercontent.com,自有
+  #- DOMAIN-SUFFIX,github.com,自有
+  #- DOMAIN-KEYWORD,youtube,国外走向
+  #- DOMAIN-KEYWORD,facebook,自有
+  #- DOMAIN-SUFFIX,fb.me,自有
+  #- DOMAIN-SUFFIX,fbcdn.net,自有
+  #- DOMAIN-KEYWORD,twitter,国外走向
+  #- DOMAIN-KEYWORD,instagram,国外走向
+  #- DOMAIN-KEYWORD,dropbox,国外走向
+  #- DOMAIN-SUFFIX,twimg.com,国外走向
+  #- DOMAIN-KEYWORD,blogspot,国外走向
+  #- DOMAIN-SUFFIX,youtu.be,国外走向
+  #- DOMAIN-KEYWORD,whatsapp,国外走向
 
   # 常见广告域名屏蔽
   #- DOMAIN-KEYWORD,admarvel,REJECT
-  #- DOMAIN-KEYWORD,admaster
-  - RULE-SET,Global,国外走向
-  - GEOIP,CN,国内走向
+  #- DOMAIN-KEYWORD,admaster,REJECT
+  #- DOMAIN-KEYWORD,adsage,REJECT
+  #- DOMAIN-KEYWORD,adsmogo,REJECT
+  #- DOMAIN-KEYWORD,adsrvmedia,REJECT
+  #- DOMAIN-KEYWORD,adwords,REJECT
+  #- DOMAIN-KEYWORD,adservice,REJECT
+  #- DOMAIN-KEYWORD,domob,REJECT
+  #- DOMAIN-KEYWORD,duomeng,REJECT
+  #- DOMAIN-KEYWORD,dwtrack,REJECT
+  #- DOMAIN-KEYWORD,guanggao,REJECT
+  #- DOMAIN-KEYWORD,lianmeng,REJECT
+  #- DOMAIN-SUFFIX,mmstat.com,REJECT
+  #- DOMAIN-KEYWORD,omgmta,REJECT
+  #- DOMAIN-KEYWORD,openx,REJECT
+  #- DOMAIN-KEYWORD,partnerad,REJECT
+  #- DOMAIN-KEYWORD,pingfore,REJECT
+  #- DOMAIN-KEYWORD,supersonicads,REJECT
+  #- DOMAIN-KEYWORD,uedas,REJECT
+  #- DOMAIN-KEYWORD,umeng,REJECT
+  #- DOMAIN-KEYWORD,usage,REJECT
+  #- DOMAIN-KEYWORD,wlmonitor,REJECT
+  #- DOMAIN-KEYWORD,zjtoolbar,REJECT
+
+  # LAN
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  # (Streaming Media)
+  #- RULE-SET,Streaming,Streaming
+
+  # (StreamingSE)
+  #- RULE-SET,StreamingSE,StreamingSE
+  # 规则
+  #- RULE-SET,Unbreak,DIRECT
+  #- RULE-SET,Global,国外走向
+  #使用这里ip 可以关闭下列geoip cn
+  #- RULE-SET,China,DIRECT
+  #- RULE-SET,ChinaIP,国内走向
+  
+  # 最终规则
+  - MATCH,国外走向
