@@ -7,7 +7,7 @@ log-level: silent
 ipv6: false
 external-controller: 127.0.0.1:9090
 dns:
-  enable: false
+  enable: true
   ipv6: false
   #listen: 0.0.0.0:53
   enhanced-mode: fake-ip # 或 fake-ip redir-host
@@ -144,7 +144,8 @@ rules:
   #- IP-CIDR,119.28.28.28/32,国内走向
   #- IP-CIDR,182.254.116.0/24,国内走向
   #- RULE-SET,Unbreak,国内走向
-  - RULE-SET,China,国内走向
+  #- RULE-SET,China,国内走向
+  - GEOIP,CN,国内走向
   #- RULE-SET,xprodomain,自有
   - DOMAIN-KEYWORD,accounts,自有
   - DOMAIN-KEYWORD,auth,自有
@@ -154,7 +155,6 @@ rules:
   - DOMAIN-KEYWORD,sign,自有
   - DOMAIN-SUFFIX,xclash,自有
   - RULE-SET,Global,国外走向
-  #- GEOIP,CN,国内走向
   
   # 抗 DNS 污染 
   #- DOMAIN-KEYWORD,amazon,自有
