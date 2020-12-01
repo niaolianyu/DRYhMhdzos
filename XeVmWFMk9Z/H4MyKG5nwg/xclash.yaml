@@ -84,6 +84,7 @@ proxy-groups:
     proxies:
       - AutoUrl-test
       - Load-balance
+      - FallBack
       - Trojan JP
     use:
      # - xpro
@@ -99,6 +100,15 @@ proxy-groups:
       - jetstream
   - name: Load-balance
     type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    proxies:
+      - Trojan JP
+    use:
+     # - xpro
+      - jetstream
+  - name: FallBack
+    type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
