@@ -121,9 +121,9 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
-      - jetstream
       - Trojan JP
-    #use:
+    use:
+      - jetstream
      # - xpro
 rule-providers:
  # xprodomain:
