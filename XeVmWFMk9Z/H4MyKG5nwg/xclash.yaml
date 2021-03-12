@@ -85,7 +85,7 @@ proxy-groups:
       - AutoUrl-test
       - Load-balance
       - FallBack
-      - Trojan JP
+      - 自有
     use:
      # - xpro
       - jetstream
@@ -94,7 +94,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
-      - Trojan JP
+      # - 自有
     use:
       #- xpro
       - jetstream
@@ -103,7 +103,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
-      - Trojan JP
+      # - 自有
     use:
      # - xpro
       - jetstream
@@ -112,7 +112,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
-      - Trojan JP
+      # - 自有
     use:
      # - xpro
       - jetstream
@@ -121,7 +121,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 600
     proxies:
-      - Trojan JP
+      # - Trojan JP
     use:
       - jetstream
      # - xpro
@@ -158,14 +158,15 @@ rules:
   #- RULE-SET,China,国内走向
   - GEOIP,CN,国内走向
   #- RULE-SET,xprodomain,自有
-  - DOMAIN-KEYWORD,accounts,自有
-  - DOMAIN-KEYWORD,auth,自有
-  - DOMAIN-KEYWORD,gmail,自有
-  - DOMAIN-KEYWORD,mail,自有
-  - DOMAIN-KEYWORD,login,自有
-  - DOMAIN-KEYWORD,sign,自有
-  - DOMAIN-SUFFIX,xclash,自有
-  - RULE-SET,Global,国外走向
+  
+  #- DOMAIN-KEYWORD,accounts,自有
+  #- DOMAIN-KEYWORD,auth,自有
+  #- DOMAIN-KEYWORD,gmail,自有
+  #- DOMAIN-KEYWORD,mail,自有
+  #- DOMAIN-KEYWORD,login,自有
+  #- DOMAIN-KEYWORD,sign,自有
+  #- DOMAIN-SUFFIX,xclash,自有
+  #- RULE-SET,Global,国外走向
   
   # 抗 DNS 污染 
   #- DOMAIN-KEYWORD,amazon,自有
