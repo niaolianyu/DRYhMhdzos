@@ -88,7 +88,7 @@ proxy-groups:
       - 自有
     use:
      # - xpro
-      - jetstream
+     # - jetstream
   - name: AutoUrl-test
     type: url-test
     url: http://www.gstatic.com/generate_204
