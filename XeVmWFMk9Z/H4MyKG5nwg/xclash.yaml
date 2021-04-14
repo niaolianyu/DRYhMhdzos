@@ -117,9 +117,7 @@ proxy-groups:
      # - xpro
       - jetstream
   - name: 自有
-    type: fallback
-    url: http://www.gstatic.com/generate_204
-    interval: 600
+    type: select
     proxies:
       # - Trojan JP
     use:
