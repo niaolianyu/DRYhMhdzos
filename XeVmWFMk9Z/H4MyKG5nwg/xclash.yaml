@@ -11,7 +11,7 @@ dns:
   ipv6: false
   #listen: 0.0.0.0:53
   enhanced-mode: fake-ip # 或 fake-ip redir-host
-  fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 198.168.0.1/16
   fake-ip-filter:
     - '*.msftncsi.com'
     - 'www.msftconnecttest.com'
